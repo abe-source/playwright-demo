@@ -1,8 +1,11 @@
 import { Locator, Page } from '@playwright/test';
 import { UI_ROUTES } from '../config/appConfig';
+import { BasePage } from './basePage';
 
-export class LoginPage {
-  constructor(readonly page: Page) {}
+export class LoginPage extends BasePage {
+  constructor(page: Page) {
+    super(page);
+  }
 
   get usernameInput(): Locator {
     return this.page.locator('input[name="username"]');
@@ -17,7 +20,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto(UI_ROUTES.login);
+    await this.open(UI_ROUTES.login);
   }
 
   async login(username: string, password: string) {
