@@ -1,4 +1,4 @@
-import { test } from '@tests/ui/fixtures';
+import { test } from '@fixtures/uiFixtures';
 import { USERS } from '@data/users';
 
 test.describe('Login', () => {

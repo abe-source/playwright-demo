@@ -13,8 +13,9 @@
       "@config/*": ["config/*"],
       "@data/*": ["data/*"],
       "@pages/*": ["pages/*"],
-      "@tests/*": ["tests/*"]
+      "@tests/*": ["tests/*"],
+      "@fixtures/*": ["fixtures/*"]
     }
   },
-  "include": ["config", "data", "pages", "tests", "playwright.config.ts"]
+  "include": ["config", "data", "fixtures", "pages", "tests", "playwright.config.ts"]
 }
