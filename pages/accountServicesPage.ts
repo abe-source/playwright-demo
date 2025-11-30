@@ -7,12 +7,11 @@ export class AccountServicesPage extends BasePage {
     super(page);
   }
 
-  get accountsServicesHeading(): Locator {
+  get accountServicesHeading(): Locator {
     return this.page.getByRole('heading', { name: 'Account Services' });
   }
 
   async assertHeadingText(text: string) {
-    const headingText = await this.accountsServicesHeading.textContent();
-    await expect(headingText).toBe(text);
+    await expect(this.accountServicesHeading).toHaveText(text);
   }
 }

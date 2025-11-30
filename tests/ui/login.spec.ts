@@ -11,7 +11,6 @@ test.describe('Login', () => {
     const { username, password } = USERS.demo;
 
     await loginPage.login(username, password);
-
     await accountServicesPage.assertHeadingText('Account Services');
   });
 
@@ -20,7 +19,6 @@ test.describe('Login', () => {
     const { username, password } = USERS.invalid;
 
     await loginPage.login(username, password);
-
-    await expect(page.getByText('The username and password could not be verified.')).toBeVisible();
+    await loginPage.assertErrorText('The username and password could not be verified.');
   });
 });
