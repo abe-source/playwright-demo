@@ -1,4 +1,4 @@
-import { expect, test } from '@tests/ui/fixtures';
+import { test } from '@tests/ui/fixtures';
 import { USERS } from '@data/users';
 
 test.describe('Login', () => {
@@ -14,7 +14,7 @@ test.describe('Login', () => {
     await accountServicesPage.assertHeadingText('Account Services');
   });
 
-  test('ignores invalid credentials', async ({ appPages, page }) => {
+  test('ignores invalid credentials', async ({ appPages }) => {
     const { loginPage } = appPages;
     const { username, password } = USERS.invalid;
 

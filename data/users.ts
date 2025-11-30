@@ -1,7 +1,7 @@
 export const USERS = {
   demo: {
-    username: 'autotest1',
-    password: 'qwer1234',
+    username: 'john',
+    password: 'demo',
   },
 
   invalid: {

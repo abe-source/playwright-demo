@@ -1,5 +1,4 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { UI_ROUTES } from '@config/appConfig';
 import { BasePage } from './basePage';
 
 export class AccountServicesPage extends BasePage {
