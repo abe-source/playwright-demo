@@ -8,7 +8,9 @@
     "format:check": "prettier --check .",
     "lint": "eslint . --ext .ts",
     "lint:fix": "npm run lint -- --fix",
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:results": "rm -rf allure-report && npx allure generate allure-results --output allure-report",
+    "test:open-report": "npx allure open allure-report"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,7 @@
     "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^8.48.0",
     "@typescript-eslint/parser": "^8.48.0",
+    "allure-playwright": "^3.4.2",
     "eslint": "^9.39.1",
     "prettier": "^3.7.3",
     "tsconfig-paths": "^4.2.0"

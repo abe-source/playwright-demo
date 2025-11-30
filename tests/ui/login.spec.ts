@@ -14,7 +14,7 @@ test.describe('Login', () => {
     await accountServicesPage.assertHeadingText('Account Services');
   });
 
-  test('ignores invalid credentials', async ({ appPages }) => {
+  test('does not log in with invalid credentials', async ({ appPages }) => {
     const { loginPage } = appPages;
     const { username, password } = USERS.invalid;
 
