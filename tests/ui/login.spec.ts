@@ -1,17 +1,26 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/loginPage';
-import { USERS } from '../../data/users';
+import { expect, test } from '@tests/ui/fixtures';
+import { USERS } from '@data/users';
 
-test.describe('Parabank login', () => {
-  test('customer can log in successfully', async ({ page }) => {
-    const loginPage = new LoginPage(page);
+test.describe('Login', () => {
+  test.beforeEach(async ({ appPages }) => {
+    await appPages.loginPage.goto();
+  });
 
-    await loginPage.goto();
+  test('logs in with valid credentials', async ({ appPages }) => {
+    const { loginPage, accountServicesPage } = appPages;
     const { username, password } = USERS.demo;
+
     await loginPage.login(username, password);
 
-    await expect(
-      page.getByRole('heading', { name: 'Accounts Overview' })
-    ).toBeVisible();
+    await accountServicesPage.assertHeadingText('Account Services');
+  });
+
+  test('ignores invalid credentials', async ({ appPages, page }) => {
+    const { loginPage } = appPages;
+    const { username, password } = USERS.invalid;
+
+    await loginPage.login(username, password);
+
+    await expect(page.getByText('The username and password could not be verified.')).toBeVisible();
   });
 });
