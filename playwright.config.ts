@@ -1,5 +1,6 @@
+import 'tsconfig-paths/register';
 import { defineConfig, devices } from '@playwright/test';
-import { BASE_URL } from './config/appConfig';
+import { BASE_URL } from '@config/appConfig';
 
 /**
  * Read environment variables from file.

@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { UI_ROUTES } from '../config/appConfig';
+import { UI_ROUTES } from '@config/appConfig';
 import { BasePage } from './basePage';
 
 export class LoginPage extends BasePage {
